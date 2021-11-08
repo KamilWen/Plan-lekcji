@@ -8,7 +8,7 @@
     <style>
         table {
             background-image: linear-gradient(
-                #09dbca, #1ad672
+                to bottom right, #09dbca, #37e310
             );
         }
         table, td {
@@ -39,11 +39,7 @@
             <td>Piątek</td>
         </tr>
         <?php
-            function console_log( $data ){
-                echo '<script>';
-                echo 'console.log('. json_encode( $data ) .')';
-                echo '</script>';
-            }
+
             $baza = mysqli_connect('localhost', 'root', '', 'plan');
             if(mysqli_errno($baza)) {
                 echo "Error";
@@ -55,7 +51,7 @@
                     $result = mysqli_query($baza, "SELECT * FROM plan WHERE hour=$h AND day=$d;");
                     $row = mysqli_fetch_array($result);
                     if($row) {
-                        echo "<td>$row[3]</td>";
+                        echo "<td>$row[3]<br>$row[4]</td>";
                     } else echo "<td></td>";
                 }
                 echo "</tr>";
