@@ -51,12 +51,15 @@
                     $result = mysqli_query($baza, "SELECT * FROM plan WHERE hour=$h AND day=$d;");
                     $row = mysqli_fetch_array($result);
                     if($row) {
-                        echo "<td>$row[3]<br>$row[4]</td>";
+                        echo "<td>$row[3]<br><sub>$row[4]</sub></td>";
                     } else echo "<td></td>";
                 }
                 echo "</tr>";
             }
+            
+            mysqli_close($baza);
         ?>
     </table>
+    <a href="form.php"><button>Zmień</button></a>
 </body>
 </html>
